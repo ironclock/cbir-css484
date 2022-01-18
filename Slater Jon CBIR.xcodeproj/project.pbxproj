@@ -1,0 +1,680 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3690828D2796853500A0A27A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3690828C2796853500A0A27A /* Assets.xcassets */; };
+		369082902796853500A0A27A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3690828F2796853500A0A27A /* Preview Assets.xcassets */; };
+		369082B92796857C00A0A27A /* Slater_Jon_CBIRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369082B02796857C00A0A27A /* Slater_Jon_CBIRApp.swift */; };
+		369082BA2796857C00A0A27A /* ImageCatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369082B12796857C00A0A27A /* ImageCatalogView.swift */; };
+		369082BB2796857C00A0A27A /* ColorHistogram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369082B22796857C00A0A27A /* ColorHistogram.swift */; };
+		369082BC2796857C00A0A27A /* Preview Content in Resources */ = {isa = PBXBuildFile; fileRef = 369082B32796857C00A0A27A /* Preview Content */; };
+		369082BE2796857C00A0A27A /* ProcessFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369082B52796857C00A0A27A /* ProcessFinishView.swift */; };
+		369082C12796857C00A0A27A /* ImageConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369082B82796857C00A0A27A /* ImageConfirmView.swift */; };
+		369082C42796882300A0A27A /* SwiftImage in Frameworks */ = {isa = PBXBuildFile; productRef = 369082C32796882300A0A27A /* SwiftImage */; };
+		36B24D8A2796897F0040AF3D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B24D892796897F0040AF3D /* ContentView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		369082962796853600A0A27A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4BE76DF18918FFD00A02638 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 369082852796853400A0A27A;
+			remoteInfo = "Slater Jon CBIR";
+		};
+		369082A02796853600A0A27A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4BE76DF18918FFD00A02638 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 369082852796853400A0A27A;
+			remoteInfo = "Slater Jon CBIR";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		369082862796853400A0A27A /* Slater Jon CBIR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Slater Jon CBIR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3690828C2796853500A0A27A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3690828F2796853500A0A27A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		369082B02796857C00A0A27A /* Slater_Jon_CBIRApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slater_Jon_CBIRApp.swift; sourceTree = "<group>"; };
+		369082B12796857C00A0A27A /* ImageCatalogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCatalogView.swift; sourceTree = "<group>"; };
+		369082B22796857C00A0A27A /* ColorHistogram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorHistogram.swift; sourceTree = "<group>"; };
+		369082B32796857C00A0A27A /* Preview Content */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Preview Content"; path = "Slater Jon CBIR/Preview Content"; sourceTree = "<group>"; };
+		369082B52796857C00A0A27A /* ProcessFinishView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessFinishView.swift; sourceTree = "<group>"; };
+		369082B82796857C00A0A27A /* ImageConfirmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageConfirmView.swift; sourceTree = "<group>"; };
+		36B24D872796893C0040AF3D /* Slater Jon CBIRTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Slater Jon CBIRTests.xctest"; path = "/Users/joncaceres/Slater Jon CBIR/build/Debug-iphoneos/Slater Jon CBIRTests.xctest"; sourceTree = "<absolute>"; };
+		36B24D882796893C0040AF3D /* Slater Jon CBIRUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Slater Jon CBIRUITests.xctest"; path = "/Users/joncaceres/Slater Jon CBIR/build/Debug-iphoneos/Slater Jon CBIRUITests.xctest"; sourceTree = "<absolute>"; };
+		36B24D892796897F0040AF3D /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		369082832796853400A0A27A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				369082C42796882300A0A27A /* SwiftImage in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		369082922796853600A0A27A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3690829C2796853600A0A27A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		369082872796853400A0A27A /* Slater Jon CBIR */ = {
+			isa = PBXGroup;
+			children = (
+				369082B22796857C00A0A27A /* ColorHistogram.swift */,
+				36B24D892796897F0040AF3D /* ContentView.swift */,
+				369082B12796857C00A0A27A /* ImageCatalogView.swift */,
+				369082B82796857C00A0A27A /* ImageConfirmView.swift */,
+				369082B52796857C00A0A27A /* ProcessFinishView.swift */,
+				369082B02796857C00A0A27A /* Slater_Jon_CBIRApp.swift */,
+				3690828C2796853500A0A27A /* Assets.xcassets */,
+				3690828E2796853500A0A27A /* Preview Content */,
+			);
+			path = "Slater Jon CBIR";
+			sourceTree = "<group>";
+		};
+		3690828E2796853500A0A27A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3690828F2796853500A0A27A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D4BE76DE18918FFD00A02638 = {
+			isa = PBXGroup;
+			children = (
+				369082B32796857C00A0A27A /* Preview Content */,
+				369082862796853400A0A27A /* Slater Jon CBIR.app */,
+				369082872796853400A0A27A /* Slater Jon CBIR */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		369082852796853400A0A27A /* Slater Jon CBIR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 369082A72796853600A0A27A /* Build configuration list for PBXNativeTarget "Slater Jon CBIR" */;
+			buildPhases = (
+				369082822796853400A0A27A /* Sources */,
+				369082832796853400A0A27A /* Frameworks */,
+				369082842796853400A0A27A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Slater Jon CBIR";
+			packageProductDependencies = (
+				369082C32796882300A0A27A /* SwiftImage */,
+			);
+			productName = "Slater Jon CBIR";
+			productReference = 369082862796853400A0A27A /* Slater Jon CBIR.app */;
+			productType = "com.apple.product-type.application";
+		};
+		369082942796853600A0A27A /* Slater Jon CBIRTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 369082AA2796853600A0A27A /* Build configuration list for PBXNativeTarget "Slater Jon CBIRTests" */;
+			buildPhases = (
+				369082912796853600A0A27A /* Sources */,
+				369082922796853600A0A27A /* Frameworks */,
+				369082932796853600A0A27A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				369082972796853600A0A27A /* PBXTargetDependency */,
+			);
+			name = "Slater Jon CBIRTests";
+			productName = "Slater Jon CBIRTests";
+			productReference = 36B24D872796893C0040AF3D /* Slater Jon CBIRTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3690829E2796853600A0A27A /* Slater Jon CBIRUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 369082AD2796853600A0A27A /* Build configuration list for PBXNativeTarget "Slater Jon CBIRUITests" */;
+			buildPhases = (
+				3690829B2796853600A0A27A /* Sources */,
+				3690829C2796853600A0A27A /* Frameworks */,
+				3690829D2796853600A0A27A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				369082A12796853600A0A27A /* PBXTargetDependency */,
+			);
+			name = "Slater Jon CBIRUITests";
+			productName = "Slater Jon CBIRUITests";
+			productReference = 36B24D882796893C0040AF3D /* Slater Jon CBIRUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4BE76DF18918FFD00A02638 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				KnownAssetTags = (
+					primary,
+					secondary,
+				);
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1300;
+				ORGANIZATIONNAME = "";
+				TargetAttributes = {
+					369082852796853400A0A27A = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					369082942796853600A0A27A = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 369082852796853400A0A27A;
+					};
+					3690829E2796853600A0A27A = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 369082852796853400A0A27A;
+					};
+				};
+			};
+			buildConfigurationList = D4BE76E218918FFD00A02638 /* Build configuration list for PBXProject "Slater Jon CBIR" */;
+			compatibilityVersion = "Xcode 11.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"en-AU",
+				"en-GB",
+				"en-NZ",
+			);
+			mainGroup = D4BE76DE18918FFD00A02638;
+			packageReferences = (
+				369082C22796882300A0A27A /* XCRemoteSwiftPackageReference "swift-image" */,
+			);
+			productRefGroup = D4BE76DE18918FFD00A02638;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				369082852796853400A0A27A /* Slater Jon CBIR */,
+				369082942796853600A0A27A /* Slater Jon CBIRTests */,
+				3690829E2796853600A0A27A /* Slater Jon CBIRUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		369082842796853400A0A27A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				369082BC2796857C00A0A27A /* Preview Content in Resources */,
+				369082902796853500A0A27A /* Preview Assets.xcassets in Resources */,
+				3690828D2796853500A0A27A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		369082932796853600A0A27A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3690829D2796853600A0A27A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		369082822796853400A0A27A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				369082BE2796857C00A0A27A /* ProcessFinishView.swift in Sources */,
+				369082BB2796857C00A0A27A /* ColorHistogram.swift in Sources */,
+				36B24D8A2796897F0040AF3D /* ContentView.swift in Sources */,
+				369082C12796857C00A0A27A /* ImageConfirmView.swift in Sources */,
+				369082B92796857C00A0A27A /* Slater_Jon_CBIRApp.swift in Sources */,
+				369082BA2796857C00A0A27A /* ImageCatalogView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		369082912796853600A0A27A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3690829B2796853600A0A27A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		369082972796853600A0A27A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 369082852796853400A0A27A /* Slater Jon CBIR */;
+			targetProxy = 369082962796853600A0A27A /* PBXContainerItemProxy */;
+		};
+		369082A12796853600A0A27A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 369082852796853400A0A27A /* Slater Jon CBIR */;
+			targetProxy = 369082A02796853600A0A27A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		369082A82796853600A0A27A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_ASSET_PATHS = "\"Slater Jon CBIR/Preview Content\"";
+				DEVELOPMENT_TEAM = 446NVYN95B;
+				ENABLE_PREVIEWS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.uw.bothell.Slater-Jon-CBIR";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		369082A92796853600A0A27A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = "\"Slater Jon CBIR/Preview Content\"";
+				DEVELOPMENT_TEAM = 446NVYN95B;
+				ENABLE_PREVIEWS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.uw.bothell.Slater-Jon-CBIR";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		369082AB2796853600A0A27A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 446NVYN95B;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.uw.bothell.Slater-Jon-CBIRTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Slater Jon CBIR.app/Slater Jon CBIR";
+			};
+			name = Debug;
+		};
+		369082AC2796853600A0A27A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 446NVYN95B;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.uw.bothell.Slater-Jon-CBIRTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Slater Jon CBIR.app/Slater Jon CBIR";
+			};
+			name = Release;
+		};
+		369082AE2796853600A0A27A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 446NVYN95B;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.uw.bothell.Slater-Jon-CBIRUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Slater Jon CBIR";
+			};
+			name = Debug;
+		};
+		369082AF2796853600A0A27A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 446NVYN95B;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.uw.bothell.Slater-Jon-CBIRUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Slater Jon CBIR";
+			};
+			name = Release;
+		};
+		D4BE771718918FFD00A02638 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "";
+				"OTHER_SWIFT_FLAGS[sdk=iphonesimulator*]" = "-D IOS_SIMULATOR";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D4BE771818918FFD00A02638 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				OTHER_SWIFT_FLAGS = "";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		369082A72796853600A0A27A /* Build configuration list for PBXNativeTarget "Slater Jon CBIR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				369082A82796853600A0A27A /* Debug */,
+				369082A92796853600A0A27A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		369082AA2796853600A0A27A /* Build configuration list for PBXNativeTarget "Slater Jon CBIRTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				369082AB2796853600A0A27A /* Debug */,
+				369082AC2796853600A0A27A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		369082AD2796853600A0A27A /* Build configuration list for PBXNativeTarget "Slater Jon CBIRUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				369082AE2796853600A0A27A /* Debug */,
+				369082AF2796853600A0A27A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D4BE76E218918FFD00A02638 /* Build configuration list for PBXProject "Slater Jon CBIR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4BE771718918FFD00A02638 /* Debug */,
+				D4BE771818918FFD00A02638 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		369082C22796882300A0A27A /* XCRemoteSwiftPackageReference "swift-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/koher/swift-image";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		369082C32796882300A0A27A /* SwiftImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 369082C22796882300A0A27A /* XCRemoteSwiftPackageReference "swift-image" */;
+			productName = SwiftImage;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D4BE76DF18918FFD00A02638 /* Project object */;
+}
