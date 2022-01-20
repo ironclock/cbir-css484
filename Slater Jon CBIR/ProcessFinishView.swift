@@ -92,6 +92,28 @@ struct ProcessFinishView: View {
         }
     }
     
+    // This function processes all of the functions in the ColorHistogram class.
+    //
+    // It ensures that the image exists before continuing, then store's the image name
+    // for later use when getting the index of the image array.
+    //
+    // DispatchQueue is a built-in object that manages the execution of tasks on background threads
+    // to prevent hanging or interruption of the main thread (eg. the UI).
+    //
+    // Because the image processing is resource intensive, it's completed in the background thread
+    // and the main thread displays the progress as the tasks are processing.
+    //
+    // The processing starts by creating a loop and checking to see which processing method was
+    // selected by the user (intensity or color-code). It thens run the respective tasks to process
+    // the colors of a pixel in each image and stores them in their respective bins. Afterwards
+    // the distances are calculated.
+    //
+    // The main thread then displays the images according to distance on the UI.
+    //
+    // - Parameters:
+    //      - None
+    // - Returns:
+    //      - None
     func processImages() -> Void {
         let backgroundProcess = DispatchQueue(label: "cbir.concurrent.queue", attributes: .concurrent)
         guard let selectedImage = SwiftImage.Image<RGBA<UInt8>>(named: "\(image)") else {
