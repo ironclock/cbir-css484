@@ -14,6 +14,7 @@ struct ImageConfirmView: View {
     @State var isProcessImageView: Bool = false
     @State var selectedImage: String = ""
     @State var canceled: Bool = false
+    @State var checked: Bool = false
     
     var body: some View {
         VStack {
@@ -34,7 +35,7 @@ struct ImageConfirmView: View {
                     canceled = true
                 },
                 content: {
-                ProcessFinishView(image: $image, selectedMethod: $selectedMethod, canceled: $canceled)
+                    ProcessFinishView(image: $image, selectedMethod: $selectedMethod, canceled: $canceled)
             })
         }
     }

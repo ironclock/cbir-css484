@@ -14,7 +14,7 @@ extension Color {
 }
 
 struct ContentView: View {
-    var methods = ["Intensity Method", "Color-Code Method"]
+    var methods = ["Intensity", "Color-Code", "Both"]
     @State var selectedMethod: String = "Intensity Method"
     @State var showImagePicker: Bool = false
     @State var isModal: Bool = false
@@ -22,7 +22,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             VStack {
-                Text("CBIR")
+                Text("CBIR - Part 2")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 Text("by Derek Slater & Jon Caceres")

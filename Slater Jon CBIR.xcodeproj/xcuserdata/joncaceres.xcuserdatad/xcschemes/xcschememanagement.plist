@@ -4,10 +4,30 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Slater Jon CBIR.xcscheme_^#shared#^_</key>
+		<key>Slater Jon CBIR - Part 2.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>369082852796853400A0A27A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>369082942796853600A0A27A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3690829E2796853600A0A27A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
