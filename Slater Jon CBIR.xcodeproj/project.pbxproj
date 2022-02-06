@@ -18,6 +18,8 @@
 		369082C12796857C00A0A27A /* ImageConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369082B82796857C00A0A27A /* ImageConfirmView.swift */; };
 		369082C42796882300A0A27A /* SwiftImage in Frameworks */ = {isa = PBXBuildFile; productRef = 369082C32796882300A0A27A /* SwiftImage */; };
 		36B24D8A2796897F0040AF3D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B24D892796897F0040AF3D /* ContentView.swift */; };
+		36F4A5FA27AFA5C300D626F6 /* colorCodeBins.csv in Resources */ = {isa = PBXBuildFile; fileRef = 36F4A5F827AFA5C300D626F6 /* colorCodeBins.csv */; };
+		36F4A5FB27AFA5C300D626F6 /* intensityBins.csv in Resources */ = {isa = PBXBuildFile; fileRef = 36F4A5F927AFA5C300D626F6 /* intensityBins.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		369082B52796857C00A0A27A /* ProcessFinishView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessFinishView.swift; sourceTree = "<group>"; };
 		369082B82796857C00A0A27A /* ImageConfirmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageConfirmView.swift; sourceTree = "<group>"; };
 		36B24D892796897F0040AF3D /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		36F4A5F827AFA5C300D626F6 /* colorCodeBins.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = colorCodeBins.csv; sourceTree = "<group>"; };
+		36F4A5F927AFA5C300D626F6 /* intensityBins.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = intensityBins.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 		D4BE76DE18918FFD00A02638 = {
 			isa = PBXGroup;
 			children = (
+				36F4A5F827AFA5C300D626F6 /* colorCodeBins.csv */,
+				36F4A5F927AFA5C300D626F6 /* intensityBins.csv */,
 				369082B32796857C00A0A27A /* Preview Content */,
 				369082862796853400A0A27A /* Slater Jon CBIR - Part 2.app */,
 				369082872796853400A0A27A /* Slater Jon CBIR */,
@@ -231,7 +237,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36F4A5FB27AFA5C300D626F6 /* intensityBins.csv in Resources */,
 				369082BC2796857C00A0A27A /* Preview Content in Resources */,
+				36F4A5FA27AFA5C300D626F6 /* colorCodeBins.csv in Resources */,
 				369082902796853500A0A27A /* Preview Assets.xcassets in Resources */,
 				3690828D2796853500A0A27A /* Assets.xcassets in Resources */,
 			);

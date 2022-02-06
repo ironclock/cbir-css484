@@ -71,6 +71,8 @@ struct ProcessFinishView: View {
     @State var weights = [Double](repeating: 0.01123596, count: 89)
     @State var mergedFeatureMatrix = [[Double]]()
     
+    @State var listItems: [(image: String, checked: Bool)] = (1...100).map { (image: String($0), checked: false) }
+    
     var body: some View {
         ZStack {
             ProgressView("\(progressText)", value: progress, total: 100)
@@ -110,37 +112,40 @@ struct ProcessFinishView: View {
                         if isHidden {
                             ForEach(1..<imageDetailsArray.count) { i in
                                 Image("\(imageDetailsArray[i].imageName)")
-                                .resizable()
-                                .frame(width: 100, height: 100)
-                                .cornerRadius(10)
-                                .overlay(
-                                    ZStack {
-                                        CheckBoxView(checked: imageDetailsArray[i].isChecked!, checkBoxId: Int(imageDetailsArray[i].imageName)!)
-                                            .simultaneousGesture(
-                                                TapGesture()
-                                                    .onEnded { _ in
-                                                        if let imageIndex = self.relevantImages.firstIndex(of: Int(imageDetailsArray[i].imageName)!) {
-                                                            self.relevantImages.remove(at: imageIndex)
-                                                        } else {
-                                                            self.relevantImages.append(Int(imageDetailsArray[i].imageName)!)
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                    .cornerRadius(10)
+                                    .overlay(
+                                        ZStack {
+                                            CheckBoxView(checked: listItems[i].checked, checkBoxId: Int(listItems[i].image)!)
+                                                .simultaneousGesture(
+                                                    TapGesture()
+                                                        .onEnded { _ in
+                                                            if let imageIndex = self.relevantImages.firstIndex(of: Int(imageDetailsArray[i].imageName)!) {
+                                                                self.relevantImages.remove(at: imageIndex)
+                                                            } else {
+                                                                self.relevantImages.append(Int(imageDetailsArray[i].imageName)!)
+                                                            }
+                                                            listItems[i].checked.toggle()
                                                         }
-                                                    }
-                                            )
-                                            .isHidden(selectedMethod != "Both")
-                                            .frame(alignment: .center)
-                                        Text("\(imageDetailsArray[i].imageName).jpg")
-                                            .font(.caption)
-                                            .padding(6)
-                                            .foregroundColor(.white)
-                                            .background(Color.black)
-                                            .opacity(0.8)
-                                            .cornerRadius(10.0)
-                                            .padding(.top, 70)
-                                            .frame(alignment: .bottomTrailing)
-                                    }
-                                )
+                                                )
+                                                .isHidden(selectedMethod != "Both")
+                                                .frame(alignment: .center)
+                                            Text("\(imageDetailsArray[i].imageName).jpg")
+                                                .font(.caption)
+                                                .padding(6)
+                                                .foregroundColor(.white)
+                                                .background(Color.black)
+                                                .opacity(0.8)
+                                                .cornerRadius(10.0)
+                                                .padding(.top, 70)
+                                                .frame(alignment: .bottomTrailing)
+                                                .id(imageDetailsArray[i])
+                                        }
+                                            .contentShape(Rectangle())
+                                    )
+                            }
                         }
-                    }
                     }
                 }
             }
@@ -180,17 +185,18 @@ struct ProcessFinishView: View {
         print("selected method is \(self.selectedMethod)")
         
         let imageCount = 100
-
+        
         backgroundProcess.async {
             for index in 1...imageCount {
                 if !canceled {
                     progressText = "Processing image \(index)..."
                     let image = SwiftImage.Image<RGBA<UInt8>>(named: "\(index)")!
-                    let colorsFromImage = ColorHistogram.colorFromImage(image)
+//                    let colorsFromImage = ColorHistogram.colorFromImage(image)
                     
                     if self.selectedMethod == "Intensity" {
-                        let intensityArray = ColorHistogram.getIntensity(colorsFromImage)
-                        let intensityBinHistogram = ColorHistogram.putInsideIntensityBins(intensityArray)
+//                        let intensityArray = ColorHistogram.getIntensity(colorsFromImage)
+//                        let intensityBinHistogram = ColorHistogram.putInsideIntensityBins(intensityArray)
+                        let intensityBinHistogram = ColorHistogram.readFromIntensityCSV(index)
                         
                         imageDetailsArray.append(
                             ImageDetails(
@@ -202,8 +208,9 @@ struct ProcessFinishView: View {
                                 isChecked: false)
                         )
                     } else if self.selectedMethod == "Color-Code" {
-                        let colorCodeArray = ColorHistogram.getColorCode(colorsFromImage)
-                        let colorCodeBinHistogram = ColorHistogram.putInsideColorCodeBins(colorCodeArray)
+//                        let colorCodeArray = ColorHistogram.getColorCode(colorsFromImage)
+//                        let colorCodeBinHistogram = ColorHistogram.putInsideColorCodeBins(colorCodeArray)
+                        let colorCodeBinHistogram = ColorHistogram.readFromColorCodeCSV(index)
                         
                         imageDetailsArray.append(
                             ImageDetails(
@@ -216,11 +223,11 @@ struct ProcessFinishView: View {
                         )
                     } else {
                         if relevantImages == nil {
-                            let intensityArray = ColorHistogram.getIntensity(colorsFromImage)
-                            let intensityBinHistogram = ColorHistogram.putInsideIntensityBins(intensityArray)
+//                            let intensityArray = ColorHistogram.getIntensity(colorsFromImage)
+                            let intensityBinHistogram = ColorHistogram.readFromIntensityCSV(index)
                             
-                            let colorCodeArray = ColorHistogram.getColorCode(colorsFromImage)
-                            let colorCodeBinHistogram = ColorHistogram.putInsideColorCodeBins(colorCodeArray)
+//                            let colorCodeArray = ColorHistogram.getColorCode(colorsFromImage)
+                            let colorCodeBinHistogram = ColorHistogram.readFromColorCodeCSV(index)
                             
                             var combinedBinHistogram = intensityBinHistogram.map { Double($0) } + colorCodeBinHistogram.map { Double($0) }
                             
@@ -235,7 +242,7 @@ struct ProcessFinishView: View {
                                     colorCodeBinHistogram: nil,
                                     combinedBinHistogram: nil,
                                     distance: nil,
-                                    isChecked: false)
+                                    isChecked: listItems[index-1].checked)
                             )
                         }
                     }
@@ -253,7 +260,7 @@ struct ProcessFinishView: View {
                         for image in 0...imageCount-1 {
                             sum += Double(mergedFeatureMatrix[image][element])
                         }
-                        featureAverages.append(sum/100.0)
+                        featureAverages.append(sum/Double(mergedFeatureMatrix.count))
                         sum = 0
                     }
                     
@@ -322,6 +329,8 @@ struct ProcessFinishView: View {
                             
                         } else {
                             
+                            imageDetailsArray[index-1].isChecked = listItems[index-1].checked
+                            
                             var tempFeatureMatrix: [[Double]] = []
                             var sum: Double = 0.0
                             var featureAverages = [Double]()
@@ -335,7 +344,7 @@ struct ProcessFinishView: View {
                                 for image in 0...tempFeatureMatrix.count-1 {
                                     sum += Double(tempFeatureMatrix[image][element])
                                 }
-                                featureAverages.append(sum/100.0)
+                                featureAverages.append(sum/Double(tempFeatureMatrix.count))
                                 sum = 0.0
                             }
                             
@@ -344,7 +353,11 @@ struct ProcessFinishView: View {
                                 for image in 0...tempFeatureMatrix.count-1 {
                                     featureColumn.append(tempFeatureMatrix[image][element])
                                 }
-                                featureStDevs.append(featureColumn.std())
+                                var std = featureColumn.std()
+                                if(std < 0.0000000000000001) {
+                                    std = 0.0
+                                }
+                                featureStDevs.append(std)
                                 featureColumn.removeAll()
                             }
                             
@@ -389,9 +402,14 @@ struct ProcessFinishView: View {
             
             DispatchQueue.main.async {
                 if !canceled {
+                    self.progress = 0.0
                     self.isHidden = true
                     imageDetailsArray = imageDetailsArray.sorted(by: {$0.distance! < $1.distance!})
-//                    imageDetailsArray.removeFirst()
+                    
+                    for index in 0...99 {
+                        listItems[index].checked = imageDetailsArray[index].isChecked!
+                    }
+                    //                    imageDetailsArray.removeFirst()
                 }
             }
         }

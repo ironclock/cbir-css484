@@ -148,6 +148,46 @@ class ColorHistogram {
         return binArray
     }
     
+    // comment later
+    static func readFromIntensityCSV(_ index: Int) -> [Int] {
+        let bundle = Bundle.main
+        let path = bundle.path(forResource: "intensityBins", ofType: "csv")!
+        do {
+            let content = try String(contentsOfFile: path)
+            
+            let rows = content.components(separatedBy: "\r\n")
+            
+            
+            let parsedCSV = rows[index-1].components(separatedBy: ",")
+
+            let binArray = parsedCSV.map { Int($0)!}
+            return binArray
+        }
+            catch {
+                return []
+            }
+        }
+    
+    // comment later
+    static func readFromColorCodeCSV(_ index: Int) -> [Int] {
+        let bundle = Bundle.main
+        let path = bundle.path(forResource: "colorCodeBins", ofType: "csv")!
+        do {
+            let content = try String(contentsOfFile: path)
+            
+            let rows = content.components(separatedBy: "\r\n")
+            
+            
+            let parsedCSV = rows[index-1].components(separatedBy: ",")
+
+            let binArray = parsedCSV.map { Int($0)!}
+            return binArray
+        }
+            catch {
+                return []
+            }
+        }
+    
     // The width and height of both images entered are calculated, and then
     // used in the formula provided to calculate the distance and returned as a Double
     //
