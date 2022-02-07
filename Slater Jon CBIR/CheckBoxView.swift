@@ -18,7 +18,6 @@ struct CheckBoxView: View {
             .frame(width: 50, height: 50, alignment: .center)
             .contentShape(Rectangle())
             .padding(30)
-//            .background(Color.black)
             .border(Color.white, width: 0.1)
             .opacity(0.5)
             .cornerRadius(5)
@@ -31,19 +30,3 @@ struct CheckBoxView: View {
         self.checked.toggle()
     }
 }
-
-
-
-//struct CheckBoxView_Previews: PreviewProvider {
-//    struct CheckBoxViewHolder: View {
-//        @State var checked = false
-//
-//        var body: some View {
-//            CheckBoxView(checked: $checked, checkBoxId: $checkBoxId)
-//        }
-//    }
-//
-//    static var previews: some View {
-//        CheckBoxViewHolder()
-//    }
-//}

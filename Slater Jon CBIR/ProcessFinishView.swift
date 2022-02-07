@@ -90,15 +90,15 @@ struct ProcessFinishView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width:200)
-                        //                        Spacer()
                         Text("Recalculate")
+                            .foregroundColor(relevantImages.count > 0 ? Color.white : Color.gray)
                             .isHidden(selectedMethod != "Both")
                             .onTapGesture {
-                                print($relevantImages)
                                 if relevantImages.count > 0 {
                                     if !relevantImages.contains(Int(image)!) {
                                         relevantImages.append(Int(image)!)
                                     }
+                                    print($relevantImages)
                                     self.processImages(relevantImages: relevantImages)
                                     self.isHidden = false
                                 }
@@ -123,8 +123,12 @@ struct ProcessFinishView: View {
                                                         .onEnded { _ in
                                                             if let imageIndex = self.relevantImages.firstIndex(of: Int(imageDetailsArray[i].imageName)!) {
                                                                 self.relevantImages.remove(at: imageIndex)
+                                                                print("removed \(Int(imageDetailsArray[i].imageName)!)")
+                                                                print("relevant images: \(self.relevantImages)")
                                                             } else {
                                                                 self.relevantImages.append(Int(imageDetailsArray[i].imageName)!)
+                                                                print("appended \(Int(imageDetailsArray[i].imageName)!) to relevant images")
+                                                                print("relevant images: \(self.relevantImages)")
                                                             }
                                                             listItems[i].checked.toggle()
                                                         }
@@ -161,18 +165,23 @@ struct ProcessFinishView: View {
     // DispatchQueue is a built-in object that manages the execution of tasks on background threads
     // to prevent hanging or interruption of the main thread (eg. the UI).
     //
-    // Because the image processing is resource intensive, it's completed in the background thread
-    // and the main thread displays the progress as the tasks are processing.
+    // Unlike the previous version of this app, there is no image processing because the bins for
+    // each image have already been calculated and stored locally.
     //
     // The processing starts by creating a loop and checking to see which processing method was
-    // selected by the user (intensity or color-code). It thens run the respective tasks to process
-    // the colors of a pixel in each image and stores them in their respective bins. Afterwards
-    // the distances are calculated.
+    // selected by the user (intensity or color-code). It thens run the respective tasks to get the
+    // bin values from a CSV file. Afterwards the distances are calculated.
+    //
+    // If a user selects "both" methods then the same logic as above is performed however both
+    // "intensity" and "color-code" bins are concatenated for each image.
+    //
+    // Afterwards, a merged feature matrix is created as a 2x2 array and each bin is stored inside.
+    // The averages and standard deviations are then calculated along with weights and weighted distances.
     //
     // The main thread then displays the images according to distance on the UI.
     //
     // - Parameters:
-    //      - None
+    //      - relevantImages: An array containing relevant images that were checked by the user
     // - Returns:
     //      - None
     func processImages(relevantImages: [Int]? = nil) -> Void {
@@ -191,11 +200,8 @@ struct ProcessFinishView: View {
                 if !canceled {
                     progressText = "Processing image \(index)..."
                     let image = SwiftImage.Image<RGBA<UInt8>>(named: "\(index)")!
-//                    let colorsFromImage = ColorHistogram.colorFromImage(image)
                     
                     if self.selectedMethod == "Intensity" {
-//                        let intensityArray = ColorHistogram.getIntensity(colorsFromImage)
-//                        let intensityBinHistogram = ColorHistogram.putInsideIntensityBins(intensityArray)
                         let intensityBinHistogram = ColorHistogram.readFromIntensityCSV(index)
                         
                         imageDetailsArray.append(
@@ -208,8 +214,6 @@ struct ProcessFinishView: View {
                                 isChecked: false)
                         )
                     } else if self.selectedMethod == "Color-Code" {
-//                        let colorCodeArray = ColorHistogram.getColorCode(colorsFromImage)
-//                        let colorCodeBinHistogram = ColorHistogram.putInsideColorCodeBins(colorCodeArray)
                         let colorCodeBinHistogram = ColorHistogram.readFromColorCodeCSV(index)
                         
                         imageDetailsArray.append(
@@ -223,15 +227,13 @@ struct ProcessFinishView: View {
                         )
                     } else {
                         if relevantImages == nil {
-//                            let intensityArray = ColorHistogram.getIntensity(colorsFromImage)
                             let intensityBinHistogram = ColorHistogram.readFromIntensityCSV(index)
                             
-//                            let colorCodeArray = ColorHistogram.getColorCode(colorsFromImage)
                             let colorCodeBinHistogram = ColorHistogram.readFromColorCodeCSV(index)
                             
                             var combinedBinHistogram = intensityBinHistogram.map { Double($0) } + colorCodeBinHistogram.map { Double($0) }
                             
-                            ColorHistogram.doTheThingWithCombinedBin(image, &combinedBinHistogram)
+                            ColorHistogram.normalizeBinsToFeatures(image, &combinedBinHistogram)
                             
                             mergedFeatureMatrix.append(combinedBinHistogram)
                             
@@ -318,8 +320,6 @@ struct ProcessFinishView: View {
                     else {
                         if relevantImages == nil {
                             let weightedDistance = ColorHistogram.getNormalizedDistance(
-                                selectedImage,
-                                nextImage,
                                 imageDetailsArray[selectedImageIndex-1].combinedBinHistogram!,
                                 imageDetailsArray[index-1].combinedBinHistogram!,
                                 weights
@@ -337,7 +337,7 @@ struct ProcessFinishView: View {
                             var featureStDevs = [Double]()
                             
                             for image in 0...relevantImages!.count-1 {
-                                tempFeatureMatrix.append(mergedFeatureMatrix[image])
+                                tempFeatureMatrix.append(mergedFeatureMatrix[relevantImages![image]-1])
                             }
                             
                             for element in 0...88 {
@@ -385,8 +385,6 @@ struct ProcessFinishView: View {
                             }
                             
                             let weightedDistance = ColorHistogram.getNormalizedDistance(
-                                selectedImage,
-                                nextImage,
                                 imageDetailsArray[selectedImageIndex-1].combinedBinHistogram!,
                                 imageDetailsArray[index-1].combinedBinHistogram!,
                                 weights
@@ -409,9 +407,23 @@ struct ProcessFinishView: View {
                     for index in 0...99 {
                         listItems[index].checked = imageDetailsArray[index].isChecked!
                     }
-                    //                    imageDetailsArray.removeFirst()
+                    
+                    removeSelectedImageFromRelevantImages(index: selectedImageIndex-1)
                 }
             }
+        }
+    }
+    
+    // The selected image should only appear in relevant images
+    // when the images are being processed. This ensures that.
+    //
+    // - Parameters:
+    //      - index: The user's selected image index
+    // - Returns:
+    //      - None
+    func removeSelectedImageFromRelevantImages(index: Int) -> Void {
+        if let imageIndex = self.relevantImages.firstIndex(of: Int(imageDetailsArray[index].imageName)!) {
+            self.relevantImages.remove(at: imageIndex)
         }
     }
 }

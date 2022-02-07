@@ -148,7 +148,12 @@ class ColorHistogram {
         return binArray
     }
     
-    // comment later
+    // Reads from CSV file containing intensity bin values for all images
+    //
+    // - Parameters:
+    //      - index: The row to read
+    // - Returns:
+    //      - The bin values as an array
     static func readFromIntensityCSV(_ index: Int) -> [Int] {
         let bundle = Bundle.main
         let path = bundle.path(forResource: "intensityBins", ofType: "csv")!
@@ -168,7 +173,12 @@ class ColorHistogram {
             }
         }
     
-    // comment later
+    // Reads from CSV file containing color code bin values for all images
+    //
+    // - Parameters:
+    //      - index: The row to read
+    // - Returns:
+    //      - The bin values as an array
     static func readFromColorCodeCSV(_ index: Int) -> [Int] {
         let bundle = Bundle.main
         let path = bundle.path(forResource: "colorCodeBins", ofType: "csv")!
@@ -211,7 +221,14 @@ class ColorHistogram {
         return distance
     }
     
-    static func doTheThingWithCombinedBin(_ image: SwiftImage.Image<RGBA<UInt8>>, _ combinedBin: inout [Double]) -> Void {
+    // Normalizes the bin counts into features
+    //
+    // - Parameters:
+    //      - image: The selected image
+    //      - combinedBin: The bin of the image
+    // - Returns:
+    //      - The distance between two images as a Double
+    static func normalizeBinsToFeatures(_ image: SwiftImage.Image<RGBA<UInt8>>, _ combinedBin: inout [Double]) -> Void {
         
         let imageTotalSize = Double(image.width * image.height)
         
@@ -220,7 +237,15 @@ class ColorHistogram {
         }
     }
     
-    static func getNormalizedDistance(_ image: SwiftImage.Image<RGBA<UInt8>>, _ imageTwo: SwiftImage.Image<RGBA<UInt8>>, _ imageOneFeatures: [Double], _ imageTwoFeatures: [Double], _ weights: [Double]) -> Double {
+    // Gets the normalized distances between two images
+    //
+    // - Parameters:
+    //      - imageOneFeatures: The user's selected image
+    //      - imageTwoFeatures: The image being compared
+    //      - weights: The weights being used
+    // - Returns:
+    //      - The normalized distance between two images as a Double
+    static func getNormalizedDistance(_ imageOneFeatures: [Double], _ imageTwoFeatures: [Double], _ weights: [Double]) -> Double {
           
         var distance: Double = 0
         
@@ -228,35 +253,5 @@ class ColorHistogram {
             distance += (weights[index] * abs(imageOneFeatures[index] - imageTwoFeatures[index]))
         }
         return distance
-    }
-    
-    static func standardDevOfRelevance(_ selectedImage: SwiftImage.Image<RGBA<UInt8>>, _ relevantImages: [Int], _ mergedFeatureMatrix: [[Double]]) -> [Double] {
-        var tempFeatureMatrix: [[Double]] = []
-        var sum: Double = 0.0
-        var featureAverages = [Double]()
-        var featureStDevs = [Double]()
-        
-        for image in relevantImages {
-            tempFeatureMatrix.append(mergedFeatureMatrix[image])
-        }
-        
-        for element in 0...88 {
-            for image in 0...tempFeatureMatrix.count-1 {
-                sum += Double(tempFeatureMatrix[image][element])
-            }
-            featureAverages.append(sum/100.0)
-            sum = 0
-        }
-        
-        for element in 0...88 {
-            var featureColumn = [Double]()
-            for image in 0...tempFeatureMatrix.count-1 {
-                featureColumn.append(tempFeatureMatrix[image][element])
-            }
-            featureStDevs.append(featureColumn.std())
-            featureColumn.removeAll()
-        }
-        
-        return featureStDevs
     }
 }

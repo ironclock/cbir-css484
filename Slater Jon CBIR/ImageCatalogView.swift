@@ -39,7 +39,7 @@ struct ImageCatalogView: View {
                                 .background(Color.black)
                                 .opacity(0.8)
                                 .cornerRadius(10.0)
-                                .padding(6), alignment: .bottomTrailing)
+                                    .padding(6), alignment: .bottom)
                     })
                     .sheet(isPresented: $isModalImageView, content: {
                         ImageConfirmView(image: $selectedImage, selectedMethod: $selectedMethod)
